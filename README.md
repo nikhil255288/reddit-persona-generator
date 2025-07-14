@@ -45,7 +45,7 @@ A Flask + LLaMA-powered AI project that generates a **persona profile** for any 
 
 | Result 1 | Result 2 | Result 3 |
 |----------|----------|----------|
-| ![screenshot1](client/screenshots/screenshot1.png) | ![screenshot2](client/screenshots/screenshot2.png) | ![screenshot3](client/screenshots/screenshot3.png) |
+| ![screenshot1](client/screenshots/screenshot1.jpg) | ![screenshot2](client/screenshots/screenshot2.jpg) | ![screenshot3](client/screenshots/screenshot3.jpg) |
 
 ---
 

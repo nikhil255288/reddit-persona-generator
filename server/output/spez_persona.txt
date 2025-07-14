@@ -1,0 +1,35 @@
+Persona for u/spez
+
+NAME:
+Spez
+
+USERNAME:
+spez
+
+AGE:
+45
+
+OCCUPATION:
+Redditor
+
+LOCATION:
+Internet
+
+AVATAR:
+https://styles.redditmedia.com/t5_3k30p/styles/profileIcon_snoo-nftv2_bmZ0X2VpcDE1NToxMzdfNDY2YTMzMDg4N2JkZjYyZDUzZjk2OGVhODI0NzkzMTUwZjA3NzYyZV8zNTIy_rare_4a74ad4e-f76b-458c-86ce-ed9202163a57-headshot.png?width=256&height=256&crop=256:256,smart&s=fb07ab998bb955877134c19f3c766d71ba7b880e
+
+ARCHETYPE:
+Innovator
+
+QUOTE:
+Reddit’s next chapter: smarter, easier, still human
+
+PERSONALITY:
+['Tech-savvy', 'Witty', 'Mature-for-age']
+
+GOAL:
+To make Reddit a better place for everyone
+
+FRUSTRATION:
+When people misuse the platform
+

@@ -1,0 +1,32 @@
+<!-- client/templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Persona Scraper</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Reddit Persona Generator</h1>
+    <p class="subtitle">Enter a Reddit profile URL to generate a persona.</p>
+
+    <form method="POST" action="/">
+      <label for="reddit_link">Reddit Profile URL</label>
+      <input
+        type="url"
+        id="reddit_link"
+        name="reddit_link"
+        placeholder="https://www.reddit.com/user/example_user"
+        required
+      />
+      <button type="submit">Generate Persona</button>
+    </form>
+
+    {% if error %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+  </div>
+</body>
+</html>

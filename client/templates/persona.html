@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ data.name }} - Persona</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="persona-container">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+      <img src="{{ data.avatar }}" alt="User Avatar" class="avatar" />
+
+      <h2 class="name">{{ data.name }}</h2>
+      <p class="username">@{{ data.username }}</p>
+
+      <div class="meta-info">
+        <p><strong>Age:</strong> {{ data.age }}</p>
+        <p><strong>Occupation:</strong> {{ data.occupation }}</p>
+        <p><strong>Status:</strong> {{ data.status }}</p>
+        <p><strong>Location:</strong> {{ data.location }}</p>
+        <p><strong>Tier:</strong> {{ data.tier }}</p>
+        <p><strong>Archetype:</strong> {{ data.archetype }}</p>
+      </div>
+
+      <blockquote class="quote">"{{ data.quote }}"</blockquote>
+
+      <!-- PDF Download -->
+      <form id="pdfForm" method="POST">
+        <input type="hidden" id="jsonData" />
+        <button type="submit" class="download-btn">📄 Download as PDF</button>
+      </form>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+      {% if data.traits %}
+      <div class="section">
+        <h3>Traits</h3>
+        <div class="traits">
+          {% for trait in data.traits %}
+            <span class="trait">{{ trait }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if data.motivations %}
+      <div class="section">
+        <h3>Motivations</h3>
+        {% if data.motivations is mapping %}
+          {% for key, val in data.motivations.items() %}
+            <p><strong>{{ key }}</strong>: {{ val }}</p>
+          {% endfor %}
+        {% else %}
+          <ul>
+            {% for motivation in data.motivations %}
+              <li>{{ motivation }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if data.personality %}
+      <div class="section">
+        <h3>Personality</h3>
+        {% if data.personality is mapping %}
+          {% for key, val in data.personality.items() %}
+            <p><strong>{{ key }}</strong>: {{ val }}</p>
+          {% endfor %}
+        {% else %}
+          <ul>
+            {% for trait in data.personality %}
+              <li>{{ trait }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if data.behaviour %}
+      <div class="section">
+        <h3>Behaviours</h3>
+        <ul>
+          {% for item in data.behaviour %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if data.frustrations %}
+      <div class="section">
+        <h3>Frustrations</h3>
+        <ul>
+          {% for item in data.frustrations %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if data.goals %}
+      <div class="section">
+        <h3>Goals</h3>
+        <ul>
+          {% for item in data.goals %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <div class="footer">
+        <a href="{{ url_for('home') }}" class="back-btn">← Back</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF Download Script -->
+  <script>
+    const form = document.getElementById("pdfForm");
+
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const response = await fetch("/download-pdf", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({{ data | tojson }})
+      });
+
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "{{ data.username }}_persona.pdf";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      } else {
+        alert("Failed to download PDF.");
+      }
+    });
+  </script>
+</body>
+</html>

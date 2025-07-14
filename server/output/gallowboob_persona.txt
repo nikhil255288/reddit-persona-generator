@@ -1,0 +1,35 @@
+Persona for u/gallowboob
+
+NAME:
+Gallowboob
+
+USERNAME:
+gallowboob
+
+AGE:
+35
+
+OCCUPATION:
+Redditor
+
+LOCATION:
+Internet
+
+AVATAR:
+https://styles.redditmedia.com/t5_3kl0d/styles/profileIcon_xyoutnzxi50f1.png?width=256&height=256&crop=256:256,smart&s=70284656d2e0d95ee849b846fc3f62450301f600
+
+ARCHETYPE:
+Wise Guide
+
+QUOTE:
+Everything in balance. Except karma ⬆️⬆️⬆️
+
+PERSONALITY:
+['Witty', 'Encouraging', 'Balanced']
+
+GOAL:
+Help others achieve a sense of balance and harmony
+
+FRUSTRATION:
+The constant struggle to maintain balance in an ever-changing world
+
